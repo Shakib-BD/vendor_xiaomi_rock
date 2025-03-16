@@ -2090,6 +2090,7 @@ cc_prebuilt_library_shared {
                 "libhwbinder",
                 "libhidltransport",
                 "libprocessgroup",
+                "libprocessgroup_shim",
                 "libbase",
                 "libnativewindow",
                 "libladder",
