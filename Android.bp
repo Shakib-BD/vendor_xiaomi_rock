@@ -18440,6 +18440,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libnvram.so",
             ],
             shared_libs: [
+                "libbase_shim",
                 "libcutils",
                 "libbase",
                 "liblog",
