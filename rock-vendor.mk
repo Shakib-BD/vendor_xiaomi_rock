@@ -474,7 +474,6 @@ PRODUCT_PACKAGES += \
     VP9SecureVdecCA \
     libAVCSecureVencCA \
     libaedv \
-    libbase_shim \
     libbwc \
     libgz_gp_client \
     libgz_uree \

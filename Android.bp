@@ -2077,6 +2077,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/hw/hwcomposer.mtk_common.so",
             ],
             shared_libs: [
+                "libprocessgroup_shim",
                 "libutils",
                 "libcutils",
                 "liblog",
@@ -2090,7 +2091,6 @@ cc_prebuilt_library_shared {
                 "libhwbinder",
                 "libhidltransport",
                 "libprocessgroup",
-                "libprocessgroup_shim",
                 "libbase",
                 "libnativewindow",
                 "libladder",
@@ -29642,7 +29642,6 @@ cc_prebuilt_library_shared {
                 "proprietary/system_ext/lib64/libsource.so",
             ],
             shared_libs: [
-                "libui_shim",
                 "libbinder",
                 "libcutils",
                 "libgui",
