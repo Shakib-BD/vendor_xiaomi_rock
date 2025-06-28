@@ -2942,7 +2942,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/hw/vendor.mediatek.hardware.nvram@1.1-impl.so",
             ],
             shared_libs: [
-                "libbase",
+                "libbase_shim",
                 "libcutils",
                 "libhardware",
                 "libhidlbase",
@@ -2961,6 +2961,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     relative_install_path: "hw",
     prefer: true,
     soc_specific: true,
@@ -18441,7 +18442,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libnvram.so",
             ],
             shared_libs: [
-                "libbase_shim",
+                "libbase",
                 "libcutils",
                 "libbase",
                 "liblog",
@@ -18454,6 +18455,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -18945,9 +18947,8 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libsysenv.so",
             ],
             shared_libs: [
-                "libbase_shim",
-                "liblog",
                 "libbase",
+                "liblog",
                 "libc++",
                 "libc",
                 "libm",
@@ -18956,6 +18957,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -29626,8 +29628,10 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    allow_undefined_symbols: true,
     prefer: true,
     system_ext_specific: true,
+
 }
 
 cc_prebuilt_library_shared {
