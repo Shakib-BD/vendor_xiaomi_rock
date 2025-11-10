@@ -3,7 +3,6 @@
 #
 
 LOCAL_PATH := $(call my-dir)
-
 ifeq ($(TARGET_DEVICE),rock)
 
 $(call add-radio-file-sha1-checked,radio/dpm.img,ba70d784e5fc1b41224b5baf74c225e891a2470e)
