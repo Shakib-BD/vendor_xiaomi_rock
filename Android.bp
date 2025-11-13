@@ -1515,6 +1515,32 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+    name: "android.hardware.security.keymint-V3-ndk-v34",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/android.hardware.security.keymint-V3-ndk-v34.so",
+            ],
+            shared_libs: [
+                "libbinder_ndk",
+                "android.hardware.security.secureclock-V1-ndk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
     name: "libGLES_meow",
     owner: "xiaomi",
     strip: {
@@ -2077,6 +2103,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/hw/hwcomposer.mtk_common.so",
             ],
             shared_libs: [
+                "libprocessgroup_shim",
                 "libutils",
                 "libcutils",
                 "liblog",
@@ -2090,7 +2117,6 @@ cc_prebuilt_library_shared {
                 "libhwbinder",
                 "libhidltransport",
                 "libprocessgroup",
-                "libprocessgroup_shim",
                 "libbase",
                 "libnativewindow",
                 "libladder",
@@ -29900,27 +29926,27 @@ prebuilt_etc_xml {
 }
 
 prebuilt_etc_xml {
-    name: "android.hardware.security.keymint-service.beanpod.xml",
+    name: "android.hardware.security.keymint-service.mitee.xml",
     owner: "xiaomi",
-    src: "proprietary/vendor/etc/vintf/manifest/android.hardware.security.keymint-service.beanpod.xml",
+    src: "proprietary/vendor/etc/vintf/manifest/android.hardware.security.keymint-service.mitee.xml",
     filename_from_src: true,
     sub_dir: "vintf/manifest",
     soc_specific: true,
 }
 
 prebuilt_etc_xml {
-    name: "android.hardware.security.secureclock-service.beanpod.xml",
+    name: "android.hardware.security.secureclock-service.mitee.xml",
     owner: "xiaomi",
-    src: "proprietary/vendor/etc/vintf/manifest/android.hardware.security.secureclock-service.beanpod.xml",
+    src: "proprietary/vendor/etc/vintf/manifest/android.hardware.security.secureclock-service.mitee.xml",
     filename_from_src: true,
     sub_dir: "vintf/manifest",
     soc_specific: true,
 }
 
 prebuilt_etc_xml {
-    name: "android.hardware.security.sharedsecret-service.beanpod.xml",
+    name: "android.hardware.security.sharedsecret-service.mitee.xml",
     owner: "xiaomi",
-    src: "proprietary/vendor/etc/vintf/manifest/android.hardware.security.sharedsecret-service.beanpod.xml",
+    src: "proprietary/vendor/etc/vintf/manifest/android.hardware.security.sharedsecret-service.mitee.xml",
     filename_from_src: true,
     sub_dir: "vintf/manifest",
     soc_specific: true,
@@ -30422,19 +30448,21 @@ cc_prebuilt_binary {
 }
 
 cc_prebuilt_binary {
-    name: "android.hardware.security.keymint@1.0-service.beanpod",
+    name: "android.hardware.security.keymint@1.0-service.mitee",
     owner: "xiaomi",
     target: {
         android_arm64: {
             srcs: [
-                "proprietary/vendor/bin/hw/android.hardware.security.keymint@1.0-service.beanpod",
+                "proprietary/vendor/bin/hw/android.hardware.security.keymint@1.0-service.mitee",
             ],
             shared_libs: [
-                "android.hardware.security.rkp-V3-ndk",
+                "libteecli",
+                "libhardware",
                 "libhidlbase",
-                "android.hardware.security.keymint-V4-ndk",
-                "android.hardware.security.sharedsecret-V1-ndk",
-                "android.hardware.security.secureclock-V1-ndk",
+                "android.hardware.keymaster@4.0",
+                "android.hardware.security.keymint-V1-ndk_platform",
+                "android.hardware.security.sharedsecret-V1-ndk_platform",
+                "android.hardware.security.secureclock-V1-ndk_platform",
                 "lib_android_keymaster_keymint_utils",
                 "libbase",
                 "libbinder_ndk",
@@ -30447,7 +30475,6 @@ cc_prebuilt_binary {
                 "libcutils",
                 "libcppbor_external",
                 "libcppcose_rkp",
-                "libTEECommon",
                 "libc++",
                 "libc",
                 "libm",
@@ -30551,6 +30578,7 @@ cc_prebuilt_binary {
                 "proprietary/vendor/bin/hw/mtkfusionrild",
             ],
             shared_libs: [
+                "libutils-v32",
                 "libmtkrillog",
                 "libmtkproperty",
                 "libmtkcutils",
@@ -30947,12 +30975,11 @@ cc_prebuilt_binary {
                 "proprietary/vendor/bin/mtk_agpsd",
             ],
             shared_libs: [
-                "libssl-v32",
                 "libcutils",
                 "liblog",
                 "libutils",
                 "libandroid_net",
-                "libcrypto-v32",
+                "libcrypto-v33",
                 "libc++",
                 "libc",
                 "libm",
@@ -30961,6 +30988,7 @@ cc_prebuilt_binary {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     strip: {
         none: true,
     },
